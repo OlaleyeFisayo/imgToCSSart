@@ -13,6 +13,7 @@ const postSVG = async (req, res) => {
       );
     }
   });
+  console.log("Went")
   res.status(StatusCodes.ACCEPTED).json({ msg: "Upload was Successful" });
 };
 
