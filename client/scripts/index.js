@@ -20,7 +20,7 @@ const checkChange = (event) => {
 
 const handleUpload = async () => {
   try {
-    await axios.post("https://localhost:3000/api/convert-to-css", {
+    await axios.post("localhost:3000/api/convert-to-css", {
       encodedImage,
     });
   } catch (error) {
