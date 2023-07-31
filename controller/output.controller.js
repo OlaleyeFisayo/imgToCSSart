@@ -4,17 +4,8 @@ const CustomAPIError = require("../error/customAPIError");
 const fs = require("fs");
 
 const postSVG = async (req, res) => {
-  const { data } = req.body;
-  fs.writeFileSync("../assets/output.svg", data, (err) => {
-    if (err) {
-      throw new CustomAPIError(
-        StatusCodes.INTERNAL_SERVER_ERROR,
-        "Failed to sync files"
-      );
-    }
-  });
-  console.log("Went")
-  res.status(StatusCodes.ACCEPTED).json({ msg: "Upload was Successful" });
+  const { encodedSVG } = req.body;
+  res.status(StatusCodes.CREATED).json({ msg: "Upload was Successful" });
 };
 
 const getOutput = async (req, res) => {

@@ -5,4 +5,4 @@ const { postSVG, getOutput } = require("../controller/output.controller");
 
 router.route("/convert-to-css").get(getOutput).post(postSVG);
 
-module.exports = router
+module.exports = router;

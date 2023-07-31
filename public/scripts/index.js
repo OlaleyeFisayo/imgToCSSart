@@ -3,7 +3,7 @@ const SVGInput = document.getElementById("SVGInput");
 const uploadSVG = document.getElementById("uploadSVG");
 
 //Varibles
-let file, encodedImage;
+var file, encodedSVG;
 
 //Functions
 const checkChange = (event) => {
@@ -11,7 +11,7 @@ const checkChange = (event) => {
   file = event.target.files[0];
   reader.readAsDataURL(file);
   reader.onload = () => {
-    encodedImage = reader.result;
+    encodedSVG = reader.result;
   };
   reader.onerror = (error) => {
     console.log("error", error);
@@ -20,8 +20,8 @@ const checkChange = (event) => {
 
 const handleUpload = async () => {
   try {
-    await axios.post("localhost:3000/api/convert-to-css", {
-      encodedImage,
+    await axios.post("/api/convert-to-css", {
+      encodedSVG,
     });
   } catch (error) {
     console.error(error);
@@ -31,4 +31,3 @@ const handleUpload = async () => {
 //EventListeners
 SVGInput.addEventListener("change", checkChange);
 uploadSVG.addEventListener("click", handleUpload);
-

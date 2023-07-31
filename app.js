@@ -1,4 +1,3 @@
-require("dotenv").config();
 require("express-async-errors");
 const express = require("express");
 const app = express();
@@ -8,12 +7,9 @@ const errorHandlerMiddleware = require("./middleware/error-handler");
 const router = require("./routes/output.route");
 
 app.use(express.json());
+app.use(express.static('./public'))
 
-app.get("/", (req, res) => {
-  res.send("Hello, World");
-});
 app.use("/api", router);
-
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
