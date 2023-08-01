@@ -1,17 +1,29 @@
-const createFile = require("../functions/createFile");
+const { createFile } = require("../functions/createFile");
+// const CustomAPIError = require("../error/customAPIError");
 const { StatusCodes } = require("http-status-codes");
-const CustomAPIError = require("../error/customAPIError");
+const fs = require("fs");
+const SVGParser = require("svg-parser");
+const archiever = require("archiver");
+const path = require("path");
 
-const postSVG = async (req, res) => {
-  const { encodedSVG } = req.body;
-  res.status(StatusCodes.CREATED).json({ msg: "Upload was Successful" });
+const uploadSVG = async (req, res) => {
+  const { originalName, path } = req.file;
+  const newFileName = `${originalName}.svg`;
+
+  const newPath = `uploads/${newFileName}`;
+  fs.renameSync(path, newPath);
+
+  res
+    .status(StatusCodes.OK)
+    .json({ message: "SVG file uploaded and processed successfully" });
 };
 
 const getOutput = async (req, res) => {
-  res.send("File is made");
+  const svgPath = "./uploads/undefined.svg";
+  createFile(svgPath, res);
 };
 
 module.exports = {
-  postSVG,
+  uploadSVG,
   getOutput,
 };

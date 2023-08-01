@@ -1,33 +1,42 @@
 //Elements Declaration
 const SVGInput = document.getElementById("SVGInput");
 const uploadSVG = document.getElementById("uploadSVG");
-
-//Varibles
-var file, encodedSVG;
+const downloadFile = document.getElementById("downloadFile");
 
 //Functions
-const checkChange = (event) => {
-  let reader = new FileReader();
-  file = event.target.files[0];
-  reader.readAsDataURL(file);
-  reader.onload = () => {
-    encodedSVG = reader.result;
-  };
-  reader.onerror = (error) => {
-    console.log("error", error);
-  };
-};
-
 const handleUpload = async () => {
+  const formData = new FormData();
+  const file = SVGInput.files[0];
+  formData.append("svgFile", file);
   try {
-    await axios.post("/api/convert-to-css", {
-      encodedSVG,
+    await axios.post("/api/convert-to-css", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
     });
   } catch (error) {
     console.error(error);
   }
 };
 
+const handleClick = async () => {
+  try {
+    const response = await axios.get("/api/convert-to-css", {
+      responseType: "blob",
+    });
+
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", "Output.rar");
+    document.body.appendChild(link);
+    link.click();
+    link.parentNode.removeChild(link);
+  } catch (error) {
+    console.error("Error downloading RAR file:", error);
+  }
+};
+
 //EventListeners
-SVGInput.addEventListener("change", checkChange);
 uploadSVG.addEventListener("click", handleUpload);
+downloadFile.addEventListener("click", handleClick);
