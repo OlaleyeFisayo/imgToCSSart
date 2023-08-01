@@ -8,7 +8,13 @@
     "start": "nodemon app.js",
     "build": "node install"
   },
-  "keywords": [],
+  "keywords": [
+    "node.js",
+    "HTML",
+    "SCSS",
+    "archiver",
+    "adobe express"
+  ],
   "author": "Festus-Olaleye Oluwafisayomi Oluwaseunfunmi",
   "license": "ISC",
   "dependencies": {
