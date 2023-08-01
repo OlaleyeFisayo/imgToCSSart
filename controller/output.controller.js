@@ -1,7 +1,6 @@
 const createFile = require("../functions/createFile");
 const { StatusCodes } = require("http-status-codes");
 const CustomAPIError = require("../error/customAPIError");
-const fs = require("fs");
 
 const postSVG = async (req, res) => {
   const { encodedSVG } = req.body;
