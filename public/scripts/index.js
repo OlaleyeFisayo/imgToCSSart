@@ -2,9 +2,10 @@
 const SVGInput = document.getElementById("SVGInput");
 const uploadSVG = document.getElementById("uploadSVG");
 const downloadFile = document.getElementById("downloadFile");
+const uploadImage = document.getElementById("uploadImage");
 
 //Functions
-const handleUpload = async () => {
+const uploadToServer = async () => {
   const formData = new FormData();
   const file = SVGInput.files[0];
   formData.append("svgFile", file);
@@ -19,7 +20,7 @@ const handleUpload = async () => {
   }
 };
 
-const handleClick = async () => {
+const getRARFromServer = async () => {
   try {
     const response = await axios.get("/api/convert-to-css", {
       responseType: "blob",
@@ -37,6 +38,32 @@ const handleClick = async () => {
   }
 };
 
+const uploadUserImage = () => {
+  const fileInput = document.getElementById("fileInput");
+  fileInput.click();
+};
+
+const fileReader = (e) => {
+  const reader = new FileReader();
+  file = e.target.files[0];
+  var falseData;
+  /* reads file into base 64 data type */
+  reader.readAsDataURL(file);
+  reader.onload = () => {
+    falseData = reader.result;
+  };
+  reader.onerror = (error) => {
+    console.log("error", error);
+  };
+  reader.onloadend = async () => {
+    await uploadToServer();
+    await getRARFromServer();
+  };
+};
+
 //EventListeners
-uploadSVG.addEventListener("click", handleUpload);
-downloadFile.addEventListener("click", handleClick);
+SVGInput.addEventListener("change", fileReader);
+downloadFile.addEventListener("click", () => {
+  SVGInput.click();
+});
+uploadImage.addEventListener("click", uploadUserImage);

@@ -21,6 +21,9 @@
     reader.onerror = (error) => {
       console.log("error", error);
     };
+    reader.onloadend = () => {
+      document.getElementById("convert-to-svg").click();
+    };
   });
 
   const exportOptions = [

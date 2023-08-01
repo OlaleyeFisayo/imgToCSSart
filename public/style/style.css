@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1124&q=100");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30px;
+  font-family: "Roboto", sans-serif;
+  color: white;
+}
+body .blurBackground {
+  width: 100%;
+  max-width: 1200px;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 550px) {
+  body .blurBackground {
+    grid-template-columns: auto;
+  }
+}
+body .blurBackground div {
+  text-align: center;
+  padding: 5px;
+}
+body .blurBackground div h1 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+body .blurBackground .imageToSVG #fileInput,
+body .blurBackground .imageToSVG #convert-to-svg {
+  display: none;
+}
+body .blurBackground .imageToSVG #uploadImage {
+  padding: 20px;
+  background: #298543;
+  box-shadow: 0 1px 1px rgba(18, 21, 26, 0.075);
+  color: white;
+  text-transform: capitalize;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 500ms ease-in-out;
+  border-color: #2ea44f;
+}
+body .blurBackground .imageToSVG #uploadImage:hover {
+  background: #2ea44f;
+}
+body .blurBackground .SVGtoCSS #SVGInput,
+body .blurBackground .SVGtoCSS #uploadSVG {
+  display: none;
+}
+body .blurBackground .SVGtoCSS #downloadFile {
+  padding: 20px;
+  background: #298543;
+  box-shadow: 0 1px 1px rgba(18, 21, 26, 0.075);
+  color: white;
+  text-transform: capitalize;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 500ms ease-in-out;
+  border-color: #2ea44f;
+}
+body .blurBackground .SVGtoCSS #downloadFile:hover {
+  background: #2ea44f;
+}/*# sourceMappingURL=style.css.map */

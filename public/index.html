@@ -3,19 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Image To CSS Art</title>
     <link rel="icon" href="./asset/logo.png" type="image/x-icon" />
+    <title>Image To CSS Art</title>
+    <link rel="stylesheet" href="./style/style.css" />
   </head>
   <body>
-    <h1>Image to SVG: Step 1</h1>
-    <input type="file" id="fileInput" accept=".jpeg" />
-    <button id="convert-to-svg">Convert to SVG</button>
+    <section class="blurBackground">
+      <div class="imageToSVG">
+        <h1>Image to SVG: Step 1</h1>
+        <input type="file" id="fileInput" accept=".jpeg" />
+        <button id="convert-to-svg">Get Your SVG file</button>
+        <button id="uploadImage">Upload your Image</button>
+      </div>
 
-    <h1>SVG to CSS art: step 2</h1>
-    <input type="file" id="SVGInput" accept=".svg" />
-    <button id="uploadSVG">Upload file</button>
-
-    <button id="downloadFile">Download file</button>
+      <div class="SVGtoCSS">
+        <h1>SVG to CSS art: step 2</h1>
+        <input type="file" id="SVGInput" accept=".svg" />
+        <button id="uploadSVG">Upload file</button>
+        <button id="downloadFile">Upload SVG and Download file</button>
+      </div>
+    </section>
 
     <!-- Scripts -->
     <script src="https://sdk.cc-embed.adobe.com/v2/CCEverywhere.js"></script>
