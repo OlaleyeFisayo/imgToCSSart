@@ -1,6 +1,6 @@
 # imgToCSSart Documentation
 
-A website that converts images to CSS art, actually it converts the image to svg, and then converts the svg path into "css clip-path: Polygon()" format.
+The web application transforms images into CSS art by first converting the image to SVG and then converting the SVG path into the "css clip-path: Polygon()" format.
 
 ## Installation
 
