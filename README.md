@@ -24,7 +24,7 @@ This will lead you to the server page at [http://localhost:3000](http://localhos
 
 ## Preview
 
-![Preview](./assets/img-to-css-art.png)
+[Preview](./assets/img-to-css-art.png)
 
 ## Image to CSS Art Conversion
 
