@@ -6,7 +6,8 @@
   "type": "commonjs",
   "scripts": {
     "start": "nodemon app.js",
-    "build": "node install"
+    "build": "node install",
+    "test": "jest"
   },
   "keywords": [
     "node.js",
@@ -27,6 +28,7 @@
     "svg-parser": "^2.0.4"
   },
   "devDependencies": {
+    "jest": "^29.6.2",
     "nodemon": "^3.0.1"
   }
 }
