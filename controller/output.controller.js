@@ -1,10 +1,6 @@
 const { createFile } = require("../functions/createFile");
-// const CustomAPIError = require("../error/customAPIError");
 const { StatusCodes } = require("http-status-codes");
 const fs = require("fs");
-const SVGParser = require("svg-parser");
-const archiever = require("archiver");
-const path = require("path");
 
 const uploadSVG = async (req, res) => {
   const { originalName, path } = req.file;
